@@ -1,0 +1,23 @@
+<div class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-green-200 to-green-500 text-gray-800 p-6">
+  <div class="bg-white shadow-lg rounded-2xl p-6 w-full max-w-sm text-center">
+    <h1 class="text-3xl font-bold text-green-700 mb-4">Bob's Corn 🌽</h1>
+
+    <input
+      type="text"
+      [(ngModel)]="clientId"
+      placeholder="Enter your client ID"
+      class="w-full p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400"
+    />
+
+    <button
+      (click)="buyCorn()"
+      class="mt-4 px-6 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition duration-200"
+    >
+      Buy Corn
+    </button>
+
+    <p *ngIf="message" class="mt-4 text-lg font-semibold" [ngClass]="{'text-green-600': success, 'text-red-600': !success}">
+      {{ message }}
+    </p>
+  </div>
+</div>
