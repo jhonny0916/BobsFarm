@@ -16,22 +16,6 @@ namespace BobsFarm_DA.Repositories
         {
                        
         }
-
-        public async Task<bool> GetLastMinuteClientPurchase(string clientId)
-        {
-            var oneMinuteAgo = DateTime.UtcNow.AddMinutes(-1);
-
-            EFCornPurchase? recentPurchase = null;
-
-            using (var context = new EFContext()) {
-                 recentPurchase = await context.CornPurchases.AsNoTracking()
-                .Where(p => p.ClientId == clientId && p.PurchaseTime >= oneMinuteAgo)
-                .FirstOrDefaultAsync();
-            }                
-
-            return recentPurchase != null;
-        }
-
         public async Task AddCornPurchase(string clientId)
         {
             var purchase = new EFCornPurchase

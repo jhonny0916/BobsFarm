@@ -24,7 +24,7 @@ namespace BobsFarm.Tests
         [Fact]
         public async Task BuyCorn_Success_ReturnsOk()
         {
-            _cornServiceMock.Setup(s => s.BuyCorn(It.IsAny<string>())).ReturnsAsync(true);
+            _cornServiceMock.Setup(s => s.BuyCorn(It.IsAny<string>()));
 
             var result = await _controller.BuyCorn("testClient");
 
@@ -35,7 +35,7 @@ namespace BobsFarm.Tests
         [Fact]
         public async Task BuyCorn_TooManyRequests_Returns429()
         {
-            _cornServiceMock.Setup(s => s.BuyCorn(It.IsAny<string>())).ReturnsAsync(false);
+            _cornServiceMock.Setup(s => s.BuyCorn(It.IsAny<string>()));
 
             var result = await _controller.BuyCorn("testClient");
 

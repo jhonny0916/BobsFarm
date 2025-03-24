@@ -9,8 +9,6 @@ namespace BobsFarm_DA.Interfaces
 {
     public interface ICornRepository
     {
-        Task<bool> GetLastMinuteClientPurchase(string clientId);
-
         Task AddCornPurchase(string clientId);
     }
 }

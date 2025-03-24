@@ -8,6 +8,6 @@ namespace BobsFarm_AL.Interfaces
 {
     public interface ICornService
     {
-        Task<bool> BuyCorn(string clientId);
+        Task BuyCorn(string clientId);
     }
 }

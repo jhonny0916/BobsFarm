@@ -13,17 +13,8 @@ namespace BobsFarm_AL.Services
         private readonly ICornManager _cornManager;
         public CornService(ICornManager cornManager) { _cornManager = cornManager; }
 
-        public async Task<bool> BuyCorn(string clientId)
-        {
-            var lastMinutePurchase = await _cornManager.GetLastMinuteClientPurchase(clientId);
-
-            if (lastMinutePurchase)
-                return false;
-            else
-            {
-                await _cornManager.AddCornPurchase(clientId);
-                return true;
-            }
+        public async Task BuyCorn(string clientId) {
+           await _cornManager.AddCornPurchase(clientId);
         }
     }
 }

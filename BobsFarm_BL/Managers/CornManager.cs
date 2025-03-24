@@ -13,11 +13,6 @@ namespace BobsFarm_BL.Managers
         private readonly ICornRepository _cornRepository;
         public CornManager(ICornRepository cornRepository) { _cornRepository = cornRepository; }
 
-        public async Task<bool> GetLastMinuteClientPurchase(string clientId)
-        {
-            return await _cornRepository.GetLastMinuteClientPurchase(clientId);
-        }
-
         public async Task AddCornPurchase(string clientId)
         {
             await _cornRepository.AddCornPurchase(clientId);
